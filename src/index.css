@@ -1,3 +1,11 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     --White: hsl(0, 0%, 100%);
     --Slate-100: hsl(202, 86%, 94%);
@@ -10,3 +18,212 @@
     font-size: 10px;
 }
 
+body {
+    font-family: 'Overpass', serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.calculator-component {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+    margin-top: 1.6rem;
+}
+
+.header-component {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2.2rem;
+    margin-bottom: 2rem;
+    margin-left: .7rem;
+}
+
+.header-component .header-title {
+    font-size: 2.4rem;
+    color: var(--Slate-900);
+}
+
+.header-component .clear-all-button {
+    text-decoration: underline;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: .4rem;
+    color: var(--Slate-700);
+    cursor: pointer;   
+}
+
+.mortgage-amount-component, .mortgage-term-component,
+.interest-rate-component {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.2rem;
+    align-items: flex-start;
+    margin-left: .7rem;
+}
+
+.mortgage-amount-component .mortgage-amount-header,
+.mortgage-term-component .mortgage-term-header,
+.interest-rate-component .interest-rate-header,
+.mortgage-type-component .mortgage-type-header {
+    margin-bottom: .7rem;
+    font-size: 1.7rem;
+    color: var(--Slate-700);
+    font-weight: 500;
+}
+
+.mortgage-amount-component .currency-input, 
+.mortgage-term-component .mortgage-input-container,
+.interest-rate-component .interest-input-container {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    width: 300px;
+    border: 1px solid var(--Slate-700);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.mortgage-amount-component .currency-input .currency-symbol,
+.mortgage-term-component .mortgage-input-container .years, 
+.interest-input-container .percentage{
+    background-color: var(--Slate-100);
+    color: var(--Slate-900);
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    flex: 0 0 11%;
+    text-align: center;
+}
+
+.mortgage-amount-component .currency-input .mortgage-amount-input, 
+.mortgage-term-component .mortgage-input-container .mortgage-term-input,
+.interest-input-container .interest-rate-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.mortgage-type-component {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    margin-left: .7rem;
+}
+
+.mortgage-type-component .mortgage-type-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.mortgage-type-container .repayment-container,
+.interest-only-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    border: 1px solid var(--Slate-700);
+    border-radius: 5px;
+    width: 300px;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.mortgage-type-container .repayment-container label,
+.interest-only-container label {
+    font-size: 1.8rem;
+    margin-left: 1.2rem;
+    font-weight: 600;
+    color: var(--Slate-900);
+    display: inline-flex;
+    cursor: pointer;
+    width: 100%;
+}
+
+.mortgage-type-container .repayment-container input,
+.interest-only-container input {
+    opacity: 0;
+    position: absolute;
+}
+
+.mortgage-type-container .repayment-container label::before,
+.interest-only-container label::before {
+    content: '';
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 2px solid var(--Slate-500);
+    border-radius: 50%;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked + label::before {
+    background-color: var(--Lime);
+    border-color: var(--Lime);
+    -webkit-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 9px 0px rgba(0,0,0,0.75);
+}
+
+.repayment-container:has(input[type="radio"]:checked), 
+.interest-only-container:has(input[type="radio"]:checked) {
+    background-color: hsl(65, 53%, 91%);
+    border-color: var(--Lime);
+}
+
+.mortgage-amount-component .currency-input:has(input[type="number"]:focus) {
+    border-color: var(--Lime);
+    transition: all 0.3s ease-in-out;
+}
+
+.currency-input:focus-within .currency-symbol {
+    background-color: var(--Lime);
+    transition: all 0.3s ease-in-out;
+}
+
+.button-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    align-self: center;
+}
+  
+.calculate-repayments-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Lime);
+    color: var(--Slate-900);
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Overpass';
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    gap: 0.7rem;
+    width: 300px;
+}
+  
+.calculate-repayments-button:hover {
+    background-color: hsl(61, 85%, 74%);
+}
+  
+.calculate-repayments-button svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--Slate-900);
+}
