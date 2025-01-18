@@ -26,6 +26,13 @@ body {
     align-items: flex-start;
 }
 
+.main-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .calculator-component {
     display: flex;
     flex-direction: column;
@@ -126,6 +133,11 @@ body {
     max-width: 100%;
 }
 
+.mortgage-type-component .mortgage-type-container .repayment-container:hover,
+.interest-only-container:hover {
+    border: 1px solid var(--Lime);
+}
+
 .mortgage-type-container .repayment-container,
 .interest-only-container {
     display: flex;
@@ -137,6 +149,7 @@ body {
     width: 300px;
     padding: 1rem;
     margin-bottom: 1.2rem;
+    transition: all .3s ease-in-out;
 }
 
 .mortgage-type-container .repayment-container label,
@@ -226,4 +239,136 @@ input[type="radio"]:checked + label::before {
     width: 22px;
     height: 22px;
     fill: var(--Slate-900);
+}
+
+.empty-results-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Slate-900);
+    margin-top: 3.2rem;
+    display: none;
+}
+
+.empty-results-component .top-component {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-results-component .top-component .top-header {
+    color: var(--White);
+    font-size: 2.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: .9rem;
+}
+
+.empty-results-component .text-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 2.3rem;
+}
+
+.empty-results-component .text-component .text-content {
+    color: var(--Slate-300);
+    font-size: 1.6rem;
+}
+
+.final-results-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--Slate-900);
+    margin-top: 3.2rem;
+}
+
+.final-results-component .final-results-header {
+    margin-top: 2.7rem;
+    margin-left: 2.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.final-results-component .final-results-header .final-results-title {
+    color: var(--White);
+    font-size: 1.9rem;
+    max-width: 100%;
+}
+
+.final-results-component .final-results-header .total-text-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 95%;
+    text-align: left;
+    margin-bottom: 2.3rem;
+    margin-top: 1.2rem;
+}
+
+.final-results-component .final-results-header .total-text-component .final-results-text {
+    color: var(--Slate-300);
+    font-size: 1.6rem;
+}
+
+.final-results-component .final-calculations-component {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    max-width: 100%;
+    width: 90%;
+    background-color: hsl(202, 70%, 9%);
+    align-self: center;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    border-top: 3px solid var(--Lime);
+}
+
+.final-results-component .final-calculations-component .monthly-repayments, .total-repayments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+.final-calculations-component .monthly-repayments .monthly-repayments-title, 
+.total-repayments .total-repayments-title{
+    color: var(--Slate-300);
+    font-size: 1.6rem;
+    margin-top: 1.2rem;
+    margin-left: .6rem;
+}
+
+.monthly-repayments .monthly-amount {
+    color: var(--Lime);
+    margin-left: .6rem;
+    margin-top: .9rem;
+    margin-bottom: 1rem;
+    font-size: 3.9rem;
+}
+
+.monthly-repayments .divider {
+    width: 300px;
+    border: 1px solid hsl(60, 35%, 18%);
+}
+
+.total-repayments .total-repayments-title {
+    margin-top: 1.9rem;
+}
+
+.total-repayments .total-repayment {
+    margin-left: .6rem;
+    margin-top: .9rem;
+    margin-bottom: 1rem;
+    color: var(--White);
+    font-size: 2.2rem;
 }
