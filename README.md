@@ -40,6 +40,60 @@ Users should be able to:
 
 ## My process
 
+I went with React for this project, and I also followed the mobile-first workflow. 
+
+I divided the layout into three major or main components:
+  -`main-component`
+  -`empty-results-component`
+  -`final-results-component`
+
+In `main-component`, I created 10 components (which I think are a lot by the way, but I did not want to risk jamming everything together and getting stuck later on). each component would play a role both in the design part and the functional part:
+`Calculator.jsx`:
+```jsx
+import Header from "./Header"
+import MortgageInputs from "./MortgageInputs"
+import CalculateButton from "./CalculateButton"
+const Calculator = () => {
+  return (
+    <div className="calculator-component">
+      <Header />
+      <MortgageInputs />
+      <CalculateButton />
+    </div>
+  )
+}
+export default Calculator
+``` 
+
+In `empty-results-component`, I created 4 components:
+  -`Results.jsx`
+  -`IllustrationEmpty.jsx` (just an svg react component)
+  -`Text.jsx`
+  -`Top.jsx`
+`Results.jsx`:
+```jsx
+import Top from "./Top"
+import Text from "./Text"
+const Results = () => {
+  return (
+    <div className="empty-results-component">
+      <Top />
+      <Text />
+    </div>
+  )
+}
+export default Results
+```
+
+In `final-results-component`, the results of the calculations would appear. I created 6 components:
+  -`FinalResults.jsx`
+  -`FinalHeader.jsx`
+  -`TextComponent.jsx`
+  -`FinalCalculations.jsx`
+  -`MonthlyRepayment.jsx`
+  -`TotalRepayment.jsx`
+
+
 ### Built with
 
 - Semantic HTML5 markup
@@ -71,7 +125,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- GitHub - [ziad-rima](https://github.com/ziad-rima)
+- Frontend Mentor - [@ziad-rima](https://www.frontendmentor.io/profile/ziad-rima)
+- X - [@rima](https://x.com/rima4082)
 
