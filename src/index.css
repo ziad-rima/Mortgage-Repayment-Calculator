@@ -229,6 +229,7 @@ input[type="radio"]:checked + label::before {
     transition: background-color 0.3s ease;
     gap: 0.7rem;
     width: 300px;
+    max-width: 100%;
 }
   
 .calculate-repayments-button:hover {
@@ -248,7 +249,6 @@ input[type="radio"]:checked + label::before {
     align-items: center;
     background-color: var(--Slate-900);
     margin-top: 3.2rem;
-    display: none;
 }
 
 .empty-results-component .top-component {
@@ -371,4 +371,84 @@ input[type="radio"]:checked + label::before {
     margin-bottom: 1rem;
     color: var(--White);
     font-size: 2.2rem;
+}
+
+@media (min-width: 1110px) {
+    .main-component {
+        flex-direction: row;
+        overflow: hidden;
+        max-width: 100%;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .empty-results-component, .final-results-component {
+        min-height: 530px;
+        border-bottom-left-radius: 60px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        width: 47%;
+        margin-left: 2rem;
+    }
+
+    .final-results-component {
+        justify-content: flex-start;
+        width: 43.3%;
+        margin-left: -1.5rem;
+    }
+
+    .final-results-component .final-results-header {
+        margin-top: 3rem;
+    }
+
+    .final-results-component .final-calculations-component {
+        margin-bottom: 2rem;
+        height: 300px;
+    }
+
+    .final-results-component .final-calculations-component .monthly-repayments, .total-repayments {
+        margin-left: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .final-results-component .final-calculations-component .monthly-repayments .monthly-repayments-title,
+    .total-repayments .total-repayments-title {
+        margin-bottom: .8rem;
+    }
+
+    .final-results-component .final-calculations-component .monthly-repayments .monthly-amount {
+        font-size: 5.4rem;
+    }
+
+    .final-calculations-component .total-repayments .total-repayment {
+        font-size: 2.9rem;
+    }
+
+    .final-results-component .final-calculations-component .monthly-repayments .divider {
+        margin-top: 2rem;
+        width: 380px;
+    }
+
+    .calculator-component {
+        width: 35%;
+    }
+
+    .calculator-component .header-component {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 2.9rem;
+        width: 100%;
+    }
+
+    .calculator-component .header-component .clear-all-button {
+        margin-left: 12rem;
+    }
+
+    .calculator-component  .mortgage-amount-component .currency-input,
+    .mortgage-term-component .mortgage-input-container,
+    .interest-rate-component .interest-input-container, 
+    .mortgage-inputs-component .mortgage-type-component .repayment-container, .interest-only-container{
+        width: 400px;
+    }
+
 }

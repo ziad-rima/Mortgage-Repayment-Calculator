@@ -12,7 +12,6 @@ This is a solution to the [Mortgage repayment calculator challenge on Frontend M
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -29,9 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-
+![](./public/design/Screenshot.png)
 
 ### Links
 
@@ -93,17 +90,76 @@ In `final-results-component`, the results of the calculations would appear. I cr
   -`MonthlyRepayment.jsx`
   -`TotalRepayment.jsx`
 
+For the logic part of this project, I initialized 6 states with their corresponding state updater functions in `App.jsx`;
+```jsx
+const [amount, setAmount] = useState("");
+const [term, setTerm] = useState("");
+const [rate, setRate] = useState("");
+const [morgType, setMorgType] = useState("");
+const [showResults, setShowResults] = useState(false);
+const [clearAll, setClearAll] = useState(false);
+```
+Then I passed them to their appropriate components:
+```jsx
+<Calculator 
+  amount={amount} setAmount={setAmount} 
+  term={term} setTerm={setTerm}
+  rate={rate} setRate={setRate}
+  morgType={morgType} setMorgType={setMorgType}
+  setShowResults={setShowResults}
+  clearAll={clearAll} setClearAll={setClearAll}
+/>
+<FinalResults 
+  amount={amount} term={term} rate={rate} 
+  morgType={morgType}
+/> 
+```
+After that, I handled the calculations in `FinalCalculations.jsx` and passed the results to both `MonthlyRepayment.jsx` and `TotalRepayment.jsx` to display them.
+
+I handled the `Clear All` button this way:
+`App.jsx`:
+```jsx
+const [clearAll, setClearAll] = useState(false);
+const handleClearAll = () => {
+  setAmount("");
+  setTerm("");
+  setRate("");
+  setMorgType("");
+  setClearAll(false);
+};
+
+if (clearAll) {
+  handleClearAll();
+}
+```
+`Header.jsx`:
+```jsx
+const Header = ({clearAll, setClearAll}) => {
+  
+  const handleClickAll = () => {
+    setClearAll(true);
+  }  
+  return (
+    <header className="header-component">
+      <h1 className="header-title">Mortgage Calculator</h1>
+      <p onClick={handleClickAll} id="clear-all" className="clear-all-button">Clear All</p>
+    </header>
+  )
+}
+export default Header
+```
+
+Like I mentioned before, I followed the mobile-first approach for this project, I faced a lot of difficulties trying to make it responsive for larger screens, the project is now in the best shape I could get it.
+
+There's also another issue that has to do with how React 'reacts' to changes in states, each time a state is changed, React automatically re-renders the UI with the new updated states, this causes the `Calculate Repayments` button to be useless beyond the first click, so the user has to refresh the page.
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
 ### What I learned
 
@@ -118,10 +174,7 @@ In `final-results-component`, the results of the calculations would appear. I cr
 
 ### Continued development
 
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+This project was a great way for me to demonstrate and assess my knowledge of React, as well as a valuable practice opportunity. My current goal is to improve development efficiency and incorporate Tailwind CSS into future projects.
 
 ## Author
 

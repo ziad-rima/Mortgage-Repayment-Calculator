@@ -1,9 +1,11 @@
 import IconCalculator from "./IconCalculator";
 
-const CalculateButton = () => {
+const CalculateButton = ({onClick}) => {
   return (
     <div className="button-component">
-      <button className="calculate-repayments-button" name="calculate-repayments">
+      <button onClick={onClick} className="calculate-repayments-button" 
+        name="calculate-repayments"
+        >
         <IconCalculator />
         <span>Calculate Repayments</span>
       </button>
