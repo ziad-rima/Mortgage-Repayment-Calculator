@@ -40,9 +40,9 @@ Users should be able to:
 I went with React for this project, and I also followed the mobile-first workflow. 
 
 I divided the layout into three major or main components:
-  -`main-component`
-  -`empty-results-component`
-  -`final-results-component`
+-`main-component`
+-`empty-results-component`
+-`final-results-component`
 
 In `main-component`, I created 10 components (which I think are a lot by the way, but I did not want to risk jamming everything together and getting stuck later on). each component would play a role both in the design part and the functional part:
 `Calculator.jsx`:
@@ -63,10 +63,10 @@ export default Calculator
 ``` 
 
 In `empty-results-component`, I created 4 components:
-  -`Results.jsx`
-  -`IllustrationEmpty.jsx` (just an svg react component)
-  -`Text.jsx`
-  -`Top.jsx`
+-`Results.jsx`
+-`IllustrationEmpty.jsx` (just an svg react component)
+-`Text.jsx`
+-`Top.jsx`
 `Results.jsx`:
 ```jsx
 import Top from "./Top"
@@ -83,12 +83,12 @@ export default Results
 ```
 
 In `final-results-component`, the results of the calculations would appear. I created 6 components:
-  -`FinalResults.jsx`
-  -`FinalHeader.jsx`
-  -`TextComponent.jsx`
-  -`FinalCalculations.jsx`
-  -`MonthlyRepayment.jsx`
-  -`TotalRepayment.jsx`
+-`FinalResults.jsx`
+-`FinalHeader.jsx`
+-`TextComponent.jsx`
+-`FinalCalculations.jsx`
+-`MonthlyRepayment.jsx`
+-`TotalRepayment.jsx`
 
 For the logic part of this project, I initialized 6 states with their corresponding state updater functions in `App.jsx`;
 ```jsx
